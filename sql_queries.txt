@@ -1,0 +1,45 @@
+https://www.postgresqltutorial.com/postgresql-string-functions/
+https://schoolsw3.com/sql/index.php
+https://www.postgresqltutorial.com/postgresql-string-functions/
+
+SELECT distinct city
+FROM public.city
+where city like 'L%%a'
+--WHERE city_id=343;
+
+--WHERE CustomerName LIKE 'a%'	Находит любые значения, которые начинаются с "a"
+--WHERE CustomerName LIKE '%a'	Находит любые значения, которые заканчиваются на "a"
+
+ select payment_id, payment_date, amount from public.payment where payment_date
+ between '2005-06-17' and '2005-06-19';
+ 
+ select payment_id, payment_date, amount from public.payment ORDER BY payment_date  DESC LIMIT 10
+ 
+ select payment_id, payment_date, amount from public.payment ORDER BY payment_id  DESC LIMIT 10
+ 
+ 
+ SELECT
+    split_part(email::TEXT,'@', 1) y,
+    split_part(email::TEXT,'@', 2) m,
+    email
+FROM
+    customer;
+	
+SELECT
+    split_part(email::TEXT,'@', 1) name,
+    split_part(email::TEXT,'@', 2) domen,
+    email
+FROM
+    customer;
+ 
+ 
+ The following query gets the full names of customers in the customer table and uses the length function to get the number of characters in their names.
+
+SELECT
+	first_name || ' ' || last_name AS name,
+	LENGTH (first_name || ' ' || last_name) len
+FROM
+	customer
+ORDER BY
+	len;
+ 
